@@ -48,6 +48,7 @@
   z-index: 9999;
   position: absolute;
   animation: easein 3s forwards;
+  font-size: 80px;
   }
   @keyframes easein {
   0% {
