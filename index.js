@@ -1,7 +1,9 @@
+// Dam preload la videouri ca sa fie mai rapida schimbarea de culori
 
 const colors = ['Negru', 'Gri', 'Violet', 'Galben'];
 
-// Dam preload la videouri ca sa fie mai rapida schimbarea de culori
+const preloadedVideos = {};
+
 function preloadVideos() {
   colors.forEach(color => {
     const videoSources = [
@@ -12,16 +14,33 @@ function preloadVideos() {
       `assets/Videos/${color}/pixScos.mp4`
     ];
 
+    preloadedVideos[color] = {};
+
     videoSources.forEach(src => {
-      const video = document.createElement('video');
-      video.src = src;
-      video.preload = 'auto';
+      var xhr = new XMLHttpRequest();
+      xhr.open("GET", src, true);
+      xhr.responseType = "arraybuffer";
+
+      xhr.onload = function(oEvent) {
+        var blob = new Blob([oEvent.target.response], {type: "video/mp4"});
+        var url = URL.createObjectURL(blob);
+        preloadedVideos[color][src] = url;
+      };
+
+      xhr.onprogress = function(oEvent) {
+        if (oEvent.lengthComputable) {
+          var percentComplete = oEvent.loaded / oEvent.total;
+          console.log(percentComplete)
+        }
+      };
+
+      xhr.send();
     });
   });
 }
 
-
 preloadVideos();
+
 
 
 //versiunea codului pentru telefon, pentru documentatie si versiunea de pc, vedeti linia 342
@@ -205,21 +224,20 @@ if(window.screen.width < 768){
         
     }
     function changeVideo() {
-        video.setAttribute("src", `assets/Videos/${selectedColor}/Ecran.mp4`);
+        video.setAttribute("src", preloadedVideos[selectedColor][`assets/Videos/${selectedColor}/Ecran.mp4`]);
         video.load()
         video.play()
-        spate.setAttribute("src", `assets/Videos/${selectedColor}/Spate.mp4`);
+        spate.setAttribute("src", preloadedVideos[selectedColor][`assets/Videos/${selectedColor}/Spate.mp4`]);
         spate.load()
         spate.play()
-        jos.setAttribute("src", `assets/Videos/${selectedColor}/Jos.mp4`);
+        jos.setAttribute("src", preloadedVideos[selectedColor][`assets/Videos/${selectedColor}/Jos.mp4`]);
         jos.load()
         jos.play()
-        pixBagat.setAttribute("src", `assets/Videos/${selectedColor}/pixBagat.mp4`);
+        pixBagat.setAttribute("src", preloadedVideos[selectedColor][`assets/Videos/${selectedColor}/pixBagat.mp4`]);
         pixBagat.load()
         document.getElementById("pozaextextensieCamera").src =`assets/Videos/${selectedColor}/Camera.jpg`
-        pixScos.setAttribute("src", `assets/Videos/${selectedColor}/pixScos.mp4`);
+        pixScos.setAttribute("src", preloadedVideos[selectedColor][`assets/Videos/${selectedColor}/pixScos.mp4`]);
         pixScos.load()
-        
     }
     function main(y) {
         scrollTimeout = setTimeout(() => { scrolll.style.display = 'block'; scrolll.style.animation = 'easein 1s forwards'; }, 5000);
@@ -546,21 +564,20 @@ function changeColor(color){
 }
 //ca sa nu ne repetam si sa fie codul frumos, facem functie pentru asta
 function changeVideo() {
-    video.setAttribute("src", `assets/Videos/${selectedColor}/Ecran.mp4`);
+    video.setAttribute("src", preloadedVideos[selectedColor][`assets/Videos/${selectedColor}/Ecran.mp4`]);
     video.load()
     video.play()
-    spate.setAttribute("src", `assets/Videos/${selectedColor}/Spate.mp4`);
+    spate.setAttribute("src", preloadedVideos[selectedColor][`assets/Videos/${selectedColor}/Spate.mp4`]);
     spate.load()
     spate.play()
-    jos.setAttribute("src", `assets/Videos/${selectedColor}/Jos.mp4`);
+    jos.setAttribute("src", preloadedVideos[selectedColor][`assets/Videos/${selectedColor}/Jos.mp4`]);
     jos.load()
     jos.play()
-    pixBagat.setAttribute("src", `assets/Videos/${selectedColor}/pixBagat.mp4`);
+    pixBagat.setAttribute("src", preloadedVideos[selectedColor][`assets/Videos/${selectedColor}/pixBagat.mp4`]);
     pixBagat.load()
     document.getElementById("pozaextextensieCamera").src =`assets/Videos/${selectedColor}/Camera.jpg`
-    pixScos.setAttribute("src", `assets/Videos/${selectedColor}/pixScos.mp4`);
+    pixScos.setAttribute("src", preloadedVideos[selectedColor][`assets/Videos/${selectedColor}/pixScos.mp4`]);
     pixScos.load()
-    
 }
 function main(y) {
     //Timeout pentru textul de scroll, daca persoana este inactiva pentru 5 secunde, apare sa dea scroll in jos
