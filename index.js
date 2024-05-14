@@ -1,6 +1,6 @@
 // Dam preload la videouri ca sa fie mai rapida schimbarea de culori
 
-const colors = ['Negru', 'Gri', 'Violet', 'Galben'];
+const colors = [ 'Gri', 'Violet', 'Galben'];
 
 const preloadedVideos = {};
 
@@ -38,8 +38,9 @@ function preloadVideos() {
     });
   });
 }
+t
+setTimeout(() => {preloadVideos()}, 5000)
 
-preloadVideos();
 
 
 
