@@ -365,7 +365,7 @@
   #imgReveal {
   top: 21%;
   cursor: pointer;
-  background-image: url("assets/images/iconDrag.svg");
+  background-image: url("./assets/images/iconDrag.svg");
   padding-top: 6px;
   padding-bottom: 6px;
   padding-left: 6.5;
