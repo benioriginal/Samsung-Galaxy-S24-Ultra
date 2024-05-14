@@ -134,7 +134,8 @@
   background-color: #62605F;
   border-radius: 50%;
   width: 80px;
-  height: 80px;
+    -webkit-tap-highlight-color: transparent;
+    height: 80px;
   border: none;
   
   }
@@ -143,7 +144,8 @@
   cursor: pointer;
   border-radius: 50%;
   width: 80px;
-  height: 80px;
+    -webkit-tap-highlight-color: transparent;
+    height: 80px;
   border: none;
   
   }
@@ -151,7 +153,8 @@
   cursor: pointer;
   background-color: #4D4E5F;
   border-radius: 50%;
-  width: 80px;
+    -webkit-tap-highlight-color: transparent;
+    width: 80px;
   height: 80px;
   border: none;
   
@@ -161,7 +164,8 @@
   background-color: #F0E1B9;
   border-radius: 50%;
   width: 80px;
-  height: 80px;
+    -webkit-tap-highlight-color: transparent;
+    height: 80px;
   border: none;
   
   }
@@ -217,7 +221,14 @@
   justify-content: space-between;
   background-color: #303035;
   }
+  #cameraButton {
+    -webkit-tap-highlight-color: transparent;
   
+  }
+  #processorButton{
+    -webkit-tap-highlight-color: transparent;
+  
+  }
   .dropbar div {
   transform: translateX(5%);
   
