@@ -365,7 +365,7 @@
   #imgReveal {
   top: 23%;
   cursor: pointer;
-  background-image: url("./assets/images/iconDrag.svg");
+  background: url(//images.samsung.com/is/content/samsung/assets/us/smartphones/galaxy-s24-ultra/images/icon-btn-drag.svg) center center / cover no-repeat #fff;
   padding-top: 6px;
   padding-bottom: 6px;
   padding-left: 6.5;
