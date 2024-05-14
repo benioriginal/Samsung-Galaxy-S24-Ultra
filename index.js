@@ -321,7 +321,7 @@ if(window.screen.width < 768){
                 
                 setTimeout(() => {
                     colorMenu.style.transition = 'transform 3s';
-                    colorMenu.style.transform = 'translateX(-90px)';
+                    colorMenu.style.transform = 'translateX(-80px)';
                 }, 1000);
             }, 1000);
         
@@ -334,7 +334,7 @@ if(window.screen.width < 768){
             colorMenu.addEventListener('touchend', () => {
                 setTimeout(() => {
                     colorMenu.style.transition = 'transform 1s';
-                    colorMenu.style.transform = 'translateX(-90px)';
+                    colorMenu.style.transform = 'translateX(-80px)';
                     
                 }, 3000);
             });
