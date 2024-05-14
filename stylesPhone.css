@@ -357,7 +357,7 @@
     transform: translateX(-340px);
   
   left: 20%;
-  clip-path: inset(0 50 0 0); 
+  clip-path: inset(0 50% 0 0) !important; 
   }
   #dWrapper{
   display: none;
