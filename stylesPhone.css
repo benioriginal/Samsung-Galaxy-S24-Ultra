@@ -403,7 +403,7 @@
     transform: translateY(2500px)
   }
   #dTitle {
-    transform: translate(-200px, 1200px)
+    transform: translate(-450px, 1000px) scale(0.5);
   }
   #Gorilla {
     transform: translate(-150px, -200px);
