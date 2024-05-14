@@ -1,3 +1,30 @@
+
+const colors = ['Negru', 'Gri', 'Violet', 'Galben'];
+
+// Dam preload la videouri ca sa fie mai rapida schimbarea de culori
+function preloadVideos() {
+  colors.forEach(color => {
+    const videoSources = [
+      `assets/Videos/${color}/Ecran.mp4`,
+      `assets/Videos/${color}/Spate.mp4`,
+      `assets/Videos/${color}/Jos.mp4`,
+      `assets/Videos/${color}/pixBagat.mp4`,
+      `assets/Videos/${color}/pixScos.mp4`
+    ];
+
+    videoSources.forEach(src => {
+      const video = document.createElement('video');
+      video.src = src;
+      video.preload = 'auto';
+    });
+  });
+}
+
+
+preloadVideos();
+
+
+//versiunea codului pentru telefon, pentru documentatie si versiunea de pc, vedeti linia 342
 if(window.screen.width < 768){
 
     const introducing = document.getElementById('Introducing')
@@ -276,7 +303,7 @@ if(window.screen.width < 768){
                 
                 setTimeout(() => {
                     colorMenu.style.transition = 'transform 3s';
-                    colorMenu.style.transform = 'translateX(-100px)';
+                    colorMenu.style.transform = 'translateX(-90px)';
                 }, 1000);
             }, 1000);
         
@@ -289,7 +316,7 @@ if(window.screen.width < 768){
             colorMenu.addEventListener('touchend', () => {
                 setTimeout(() => {
                     colorMenu.style.transition = 'transform 1s';
-                    colorMenu.style.transform = 'translateX(-100px)';
+                    colorMenu.style.transform = 'translateX(-90px)';
                     
                 }, 3000);
             });
@@ -338,7 +365,7 @@ if(window.screen.width < 768){
  }
  else{
  
-     
+     // Constante pentru a le accesa mai usor (doar pe cele care le folosesti mai mult)
      const introducing = document.getElementById('Introducing')
      const video = document.getElementById('Ecran')
      const namee = document.getElementById("name")
@@ -358,6 +385,7 @@ if(window.screen.width < 768){
      const cameraButton = document.getElementById("cameraButton")
      const processorButton = document.getElementById("processorButton")
      const imgReveal = document.getElementById("imgReveal")
+     //Bool uri
 var cameraButtonBool = false
 var processorButtonBool = false
 let scrollTimeout;
@@ -367,10 +395,12 @@ var thirdVideoDone = false
 let selectedColor = "Negru"
 var pixAfar = false
 let lastX = 0 
+// cand se da scroll ruleaza functia principala pentru a arata videoclipurile
 window.onscroll = function (e) {
     main(Math.round(window.scrollY)); 
 };
 document.body.style.zoom="50%"
+//Rezolva un mic bug
 function setMaxHeight(){
     document.getElementById("spateDiv").style.maxHeight = "1850px"
     if(!cameraButtonBool){
@@ -382,6 +412,7 @@ function setMaxHeight(){
         
     }
 }
+//functie pentru ultima parte cu Display ul merge cu orice dar ar trebuii folosita strict pentru butonul de reveal
 function dragElement(elmnt) {
     var pos1 = 0, pos2 = 0, pos3 = 0, pos4 = 0;
     if (document.getElementById(elmnt.id + "header")) {
@@ -428,7 +459,7 @@ function dragElement(elmnt) {
     }
 }
 dragElement(imgReveal)
-
+//logica pentru animatiile de la al 2-lea video, doar o descriere sa fie deschisa deodata si animatii smooth
 cameraButton.addEventListener("click", () => {
     if (!cameraButtonBool && processorButtonBool || !cameraButtonBool && !processorButtonBool ){
         cameraButton.style.animation = "rotate 0.5s forwards"
@@ -478,6 +509,7 @@ processorButton.addEventListener("click", () => {
         
     }
 })
+//Pentru a putea schimba culorile adaugam event listener
 Yellow.addEventListener('click', ()=> {changeColor("Galben"); })
 Violet.addEventListener('click',()=> {changeColor("Violet")})
 Gray.addEventListener('click', ()=>{changeColor("Gri")})
@@ -486,6 +518,7 @@ function setBlock(n){
     n.style.opacity = '0'
     n.style.display = 'block'
 }
+//logica pentru culori 
 function changeColor(color){
     console.log(color, selectedColor)
     if (color === "Negru" && selectedColor !== color){
@@ -511,6 +544,7 @@ function changeColor(color){
     changeVideo()
     
 }
+//ca sa nu ne repetam si sa fie codul frumos, facem functie pentru asta
 function changeVideo() {
     video.setAttribute("src", `assets/Videos/${selectedColor}/Ecran.mp4`);
     video.load()
@@ -529,11 +563,15 @@ function changeVideo() {
     
 }
 function main(y) {
+    //Timeout pentru textul de scroll, daca persoana este inactiva pentru 5 secunde, apare sa dea scroll in jos
     scrollTimeout = setTimeout(() => { scrolll.style.display = 'block'; scrolll.style.animation = 'easein 1s forwards'; }, 5000);
+    //logica pentru cand al 3 lea video este gata
     if (thirdVideoDone){
+        //ca sa ne dam seama cand utilizatorul a ajuns la aceasta parte, pentru a arata videoul 
         if (dWrapper.getBoundingClientRect().top <= 650 && dWrapper.getBoundingClientRect().top > 1) {
             setTimeout(() => {
                 dWrapper.style.animation = 'easein 1s forwards'
+                //setam butonul de reveal la mijlocul pozei indiferent de marimea ecranului
                 imgReveal.style.top = `${(document.getElementById("dBefore").getBoundingClientRect().top - document.body.getBoundingClientRect().top) + document.getElementById("dBefore").offsetHeight / 2}px`
                 document.getElementById("ItsaMeBeny").style.opacity = "30%"
             }, 200)
@@ -542,11 +580,10 @@ function main(y) {
     }
     if (!thirdVideoDone) {
         if (jos.getBoundingClientRect().top <= 650 && jos.getBoundingClientRect().top > 1) {
+            //le setap pe grid ca sa fie una sub alta
             dWrapper.style.opacity = '0'
             dWrapper.style.display = 'grid'
-            console.log(spate.getBoundingClientRect().top)
             scrolll.innerText = ''
-            console.log(spate.getBoundingClientRect().top)
             setTimeout(() => {
                 jos.style.animation = 'easein 1s forwards'
                 josText.style.animation = 'easein 1s forwards'
@@ -556,7 +593,7 @@ function main(y) {
                     jos.addEventListener("ended", () => {
                         jos.addEventListener("click", () => {
                             jos.style.display = "none"
-                            
+                            //logica pentru pixul de la telefon daca este afara sau nu
                             if (!pixAfar){
                                 
                                 pixAfar = true
@@ -602,7 +639,7 @@ function main(y) {
     if (!firstVideoDone){
         colorMenu.style.transform = 'translateX(-200px)';
     
-    
+        
         setTimeout(() => {
             
             colorMenu.style.transition = 'transform 1s';
@@ -615,7 +652,7 @@ function main(y) {
             }, 1000);
         }, 1000);
     
-        
+        //pentru meniul de culori, cand mouseul este acolo, sa apara
         colorMenu.addEventListener('mouseover', () => {
             colorMenu.style.transition = 'transform 1s';
             colorMenu.style.transform = 'translateX(0px)';
@@ -663,6 +700,7 @@ introducing.addEventListener('animationend', () => {
         }
         
         scrolll.style.display = 'none';
+        //pentru textul de scroll
         scrollTimeout = setTimeout(() => { scrolll.style.display = 'block'; scrolll.style.animation = 'easein 1s forwards'; }, 5000);
         main();
     });
