@@ -1,0 +1,256 @@
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no"
+    />
+
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="styles.css"
+      media="screen and (min-width: 640px)"
+    />
+
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="stylesPhone.css"
+      media="screen and (max-width: 639px)"
+    />
+
+    <script src="index.js" defer type="module"></script>
+    <title>Samsung S24 Ultra</title>
+  </head>
+  <body>
+    <video autoplay muted src="assets/Videos/Intro.mp4" id="VideoIntro"></video>
+    <h1 id="Introducing">Introducing the...</h1>
+    <h1
+      id="Scroll"
+      style="
+        position: fixed;
+        bottom: 0;
+        text-align: center;
+        margin-left: auto;
+        margin-right: auto;
+        left: 0;
+        right: 0;
+        display: none;
+        z-index: 99999;
+      "
+    >
+      Scroll ↓
+    </h1>
+    <div id="main">
+      <div id="changeColorWrap">
+        <ul>
+          <li>
+            <button class="selected" id="Negru"></button>
+          </li>
+          <li>
+            <button id="Gri"></button>
+          </li>
+          <li>
+            <button id="Violet"></button>
+          </li>
+          <li>
+            <button id="Galben"></button>
+          </li>
+        </ul>
+      </div>
+      <div class="divstuff">
+        <video
+          style="transform: translateY(100px)"
+          class="video"
+          id="Ecran"
+          muted
+          src="assets/Videos/Negru/Ecran.mp4"
+        ></video>
+        <div
+          id="name"
+          style="
+            display: flex;
+            flex-direction: column;
+            transform: translateY(300px);
+            display: none;
+          "
+        >
+          <h1 id="h1title">Samsung Galaxy S24 Ultra</h1>
+          <p id="nameDesc" style="font-family: 'Samsung'; font-weight: normal">
+            Now in titanium — the next step in tough. Experience S24 Ultra
+            through a 6.8" flat display with embedded S Pen.
+          </p>
+        </div>
+      </div>
+      <div class="divstuff" id="spateDiv">
+        <video
+          muted
+          class="video"
+          id="Spate"
+          src="assets/Videos/Negru/Spate.mp4"
+        ></video>
+        <div class=".divstuff" id="spateTextWrapper">
+          <div style="width: 50%" id="spateText" class="dropbar">
+            <h1 id="stunning">Stunning photos, enhanced with AI</h1>
+            <p
+              id="ProVisual"
+              style="font-family: 'Samsung'; font-weight: normal"
+            >
+              ProVisual engine improves color tone and brings out detail in
+              every photo.
+            </p>
+            <div id="Camera">
+              <p>Camera</p>
+              <button id="cameraButton"><</button>
+            </div>
+            <div id="extensieCamera">
+              <img
+                id="pozaextextensieCamera"
+                src="assets/Videos/Negru/Camera.jpg"
+                style="overflow: hidden"
+              />
+              <p>
+                Camera 200px <br />
+                12MP Ultra Wide <br />
+                10MP Tele 3x Zoom <br />
+                50MP Tele 5x Zoom Front: 12MP
+                <br />Smart AI
+              </p>
+            </div>
+            <div id="Processor">
+              <p>Processor</p>
+              <button id="processorButton"><</button>
+            </div>
+            <div id="extensieProcessor">
+              <img
+                id="pozaextextensieProcessor"
+                src="assets/Images/Processor.jpg"
+                style="overflow: hidden"
+              />
+              <p>
+                Snapdragon 8 Gen 3 <br />
+                5,000 mAh <br />
+                12GB RAM / 1TB <br />
+                S Pen <br />
+                5G (sub6, mmW).
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div id="divjos" ; class="divstuff">
+        <video
+          style="cursor: pointer"
+          muted
+          class="video"
+          id="jos"
+          src="assets/Videos/Negru/jos.mp4"
+        ></video>
+        <video
+          style="cursor: pointer"
+          class="video"
+          id="pixScos"
+          src="assets/Videos/Negru/pixScos.mp4"
+          muted
+          autoplay
+        ></video>
+        <video
+          style="cursor: pointer"
+          class="video"
+          id="pixBagat"
+          src="assets/Videos/Negru/pixBagat.mp4"
+          muted
+          autoplay
+        ></video>
+        <div
+          id="josText"
+          style="
+            display: none;
+            transform: translateY(200px);
+            text-align: center;
+          "
+        >
+          <p
+            style="
+              font-family: 'Samsung';
+              font-weight: normal;
+              margin-bottom: 0;
+            "
+          >
+            CIRCLE TO SEARCH
+          </p>
+          <h1 style="margin-top: 0">Circle it, find it</h1>
+          <video
+            muted
+            autoplay
+            style="width: 120%; transform: translateX(-75px)"
+            src="assets/Videos/Negru/circle2search.webm"
+          ></video>
+        </div>
+      </div>
+      <div class="divstuff" id="dWrapper">
+        <div
+          style="
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            transform: translateY(-500%) translateX(21%);
+          "
+        >
+          <h1 id="dTitle" style="z-index: 2">
+            The brightest <br />adaptive <br />mobile display
+          </h1>
+        </div>
+        <div id="drag">
+          <button id="imgReveal"></button>
+        </div>
+        <div class="imgg">
+          <img
+            id="dBefore"
+            style="z-index: 0"
+            src="assets/Images/displayBefore.jpg"
+          />
+        </div>
+        <div class="imgg">
+          <img
+            id="dAfter"
+            style="z-index: 1"
+            src="assets/Images/displayAfter.jpg"
+          />
+        </div>
+        <div
+          style="
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            transform: translateY(-95%);
+          "
+        >
+          <p
+            id="Gorilla"
+            style="
+              max-width: 58%;
+              font-family: 'Samsung';
+              font-weight: normal;
+
+              font-size: 25px;
+            "
+          >
+            Corning Gorilla Armor reduces reflections and improves <br />visual
+            clarity, even in direct sunlight. <br />Improved Vision Booster
+            <br />enhances contrast and color for a clearly exceptional
+            experience.
+          </p>
+        </div>
+      </div>
+      <p
+        id="ItsaMeBeny"
+        style="font-family: 'Samsung'; font-weight: bold; opacity: 0%"
+      >
+        Made by Nitu Beniamin :P
+      </p>
+    </div>
+  </body>
+</html>

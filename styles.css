@@ -1,0 +1,378 @@
+@font-face {
+    font-family: Samsung;
+    src: url(assets/fonts/Samsung.otf);
+  }
+@font-face {
+    font-family: Samsung;
+    src: url(assets/fonts/SamsungBold.otf);
+    font-weight: bold;
+  }
+
+html {
+    overflow: scroll;
+    overflow-x: hidden;
+}
+::-webkit-scrollbar {
+    width: 0;  
+    background: transparent;  
+}
+::-webkit-scrollbar-thumb {
+    background: #FF0000;
+}
+  h1 {
+  max-width: 912px;
+  font-family: 'Samsung';
+  font-weight: bold;
+  color: white;
+  font-size: 600%;
+}
+body {
+  
+  background-color: black;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  
+}
+
+#main {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+#Introducing {
+  user-select: none;
+  color: transparent;
+  z-index: 9999;
+  position: absolute;
+  animation: easein 3s forwards;
+}
+@keyframes easein {
+  0% {
+    opacity: 0%;
+  }
+  100% {
+    opacity: 100%;
+  }
+}
+
+@keyframes easeout {
+  0% {
+    opacity: 100%;
+  }
+  100% {
+    opacity: 0%;
+  }
+}
+@keyframes goup {
+  0% {
+    top: 50vh;
+
+    color:transparent
+  }
+  100%{
+    color: white;
+    top: 0;
+
+
+
+
+  }
+  
+}
+
+.name {
+  display: none;
+}
+
+.video {
+  transform: translateY(-10%);
+  width: 30%;
+  height: 30%;
+  max-width: 900px;
+  display: none;
+}
+.divstuff {
+  margin-top: 5%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}
+
+#VideoIntro {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover; 
+}
+
+#changeColorWrap {
+  transform: translateX(-200px);
+  
+  border-radius: 10px;
+  padding-left: 10px;
+  padding-right: 20px;
+  background-color: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  position: fixed;
+  left: 0;
+  z-index: 99999999999;
+  text-align: center;
+  height: 50%;
+  
+  
+}
+
+#Negru {
+  cursor: pointer;
+  background-color: #62605F;
+  border-radius: 50%;
+  width: 80px;
+  height: 80px;
+  border: none;
+  
+}
+#Gri {
+  background-color: #ACA49B;
+  cursor: pointer;
+  border-radius: 50%;
+  width: 80px;
+  height: 80px;
+  border: none;
+  
+}
+#Violet {
+  cursor: pointer;
+  background-color: #4D4E5F;
+  border-radius: 50%;
+  width: 80px;
+  height: 80px;
+  border: none;
+  
+}
+#Galben {
+  cursor: pointer;
+  background-color: #F0E1B9;
+  border-radius: 50%;
+  width: 80px;
+  height: 80px;
+  border: none;
+  
+}
+#changeColorWrap ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  
+  height: 70%;
+}
+
+.selected {
+  padding: 10px;
+  transition: padding 0.3s;
+  
+  background-clip: content-box !important;
+  border: solid 5px blue !important;
+}
+.dropbar {  
+  
+  width: min-content;
+  transform: translateY(-15%);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  
+}
+#spateTextWrapper{
+  transform: translateX(41%) ;
+  display: flex; 
+  width: 100%;
+  flex-direction: column;
+}
+#spateText {
+  
+  display: none;
+}
+#spateDiv{
+  max-height: 1850;
+}
+#Spate {
+  transform: translateX(38%) translateY(13%);
+}
+
+#Camera {
+  display: flex;
+  align-items: center;
+  flex-direction: row;
+  justify-content: space-between;
+  background-color: #303035;
+}
+
+.dropbar div {
+  max-width: 60%;
+  transform: translateX(5%);
+  
+  border-radius: 40px;
+  width: 150%;
+  
+  padding-top: 30px;
+  padding-left: 30px;
+  padding-right: 100px;
+  padding-bottom: 30px;
+  background-color: white;
+  margin-right: 100px;
+}
+.dropbar div button {
+  cursor: pointer;
+  transform: rotate(-90deg) scale(4);
+  padding-top: 0.2%;
+  padding-bottom: 0.234%;
+  background-color: transparent;
+  border-radius: 50%;
+  text-align: center;
+  border: solid 0.2px rgba(128, 128, 128, 0.33);
+  color: gray;
+}
+@keyframes rotate {
+  
+  100%{
+    transform: rotate(90deg) scale(4);
+    
+  }
+}
+@keyframes rotateBack {
+  0% {
+    transform: rotate(90deg) scale(4);
+    
+  }
+  
+  100%{
+    transform: rotate(270deg) scale(4);
+    
+  }
+}
+#Processor {
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  
+  flex-direction: row;
+  justify-content: space-between;
+  transform: translateY(-85px) translateX(5%);
+  background-color: #1F1F26;
+  border-radius: 30px;
+}
+
+p {
+  max-width: 912px;
+  font-family: 'Samsung';
+  font-weight: bold;
+  color: white;
+  font-size: 40px;
+}
+#extensieCamera {
+  height: 0%;
+  max-height: 29%;  
+  text-align: center;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+  overflow: hidden;
+  text-align: center;
+  background-color: #303035;
+  border-radius: 0;
+  transform: translateY(-33px) translateX(5%) ;
+  
+}
+
+#extensieProcessor {
+  text-align: center;
+  max-height: 33%;  
+  z-index: 1;
+  height: 0%;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+  background-color: #1F1F26;
+  transform: translateY(-150px) translateX(5%);
+  border-radius: 30px;
+  
+}
+#extensieProcessor img{
+  width: 80%;
+  max-width: 584px;
+}
+@keyframes goDown {
+  0%{
+    height: 0%;
+  }
+  100%{
+    height: 100%;
+  }
+}
+@keyframes goupp {
+  0%{
+    height: 100%;
+    
+  }
+  100%{
+    height: 0%;
+  }
+}
+
+#extensieCamera img {
+  width: 80%;
+  max-width: 584px;
+}
+#dBefore{
+  left: 20% !important;
+  width: 60%;
+}
+#dAfter{
+  width: 60%;
+  left: 20%;
+  clip-path: inset(50 0 0); 
+}
+#dWrapper{
+  display: none;
+  grid-template-columns: 1fr;
+}
+#dWrapper .imgg{
+  transform: translateX(20%);
+  padding: 50px;
+  background-color: rgba(0, 0, 0, 0);
+  grid-row-start: 1;
+  grid-column-start: 1;
+}
+#dTitle{
+  max-width: 100%;
+  transform: translateY(-40%);
+  width: 100% !important;
+}
+#imgReveal {
+  cursor: pointer;
+  background-image: url("assets/images/iconDrag.svg");
+  padding-top: 6px;
+  padding-bottom: 6px;
+  padding-left: 6.5;
+  border: none;
+  color: blue;
+  border-radius: 50%;
+  left: 50.3%;
+  z-index: 4;
+  transform: scale(10);
+  position: absolute;
+}
