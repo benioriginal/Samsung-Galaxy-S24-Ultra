@@ -1,6 +1,6 @@
 // Dam preload la videouri ca sa fie mai rapida schimbarea de culori
 
-const colors = [ 'Gri', 'Violet', 'Galben'];
+const colors = ['Gri', 'Violet', 'Galben'];
 
 const preloadedVideos = {};
 
@@ -38,9 +38,7 @@ function preloadVideos() {
     });
   });
 }
-
 setTimeout(() => {preloadVideos()}, 5000)
-
 
 
 
@@ -112,7 +110,6 @@ if(window.screen.width < 768){
         
         function elementDrag(e) {
             e = e || window.event;
-            e.preventDefault();
             var clientX = e.type === "touchmove" ? e.touches[0].clientX : e.clientX;
             var clientY = e.type === "touchmove" ? e.touches[0].clientY : e.clientY;
         
@@ -121,7 +118,7 @@ if(window.screen.width < 768){
             pos3 = clientX;
             pos4 = clientY;
         
-            if ((clientX / window.screen.width) * 100 <= 80.4297 && ((clientX / window.screen.width) * 100 >= 20.2344)){
+            if ((clientX / window.screen.width) * 100 <= 90.4297 && ((clientX / window.screen.width) * 100 >= 20.2344)){
             imgReveal.style.left = `${(clientX / window.screen.width) * 100}%`;
             if (lastX < clientX) {
                 document.getElementById("dAfter").style.clipPath = `inset(0 ${100 - ((clientX / window.screen.width) * 100) -10}% 0 0)`;
@@ -255,6 +252,7 @@ if(window.screen.width < 768){
             if (jos.getBoundingClientRect().top <= 650 && jos.getBoundingClientRect().top > 1) {
                 dWrapper.style.opacity = '0'
                 dWrapper.style.display = 'grid'
+
                 console.log(spate.getBoundingClientRect().top)
                 scrolll.innerText = ''
                 console.log(spate.getBoundingClientRect().top)
