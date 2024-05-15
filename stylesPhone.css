@@ -354,10 +354,10 @@
   left: 20% !important;
   }
   #dAfter{
-    transform: translateX(-340px);
+  transform: translateX(-340px);
   
   left: 20%;
-  clip-path: inset(0 50% 0 0) !important; 
+  clip-path: inset(0 50% 0 0); 
   }
   #dWrapper{
   display: none;
@@ -384,7 +384,7 @@
   border: none;
   color: blue;
   border-radius: 50%;
-  left: 50.3%;
+  left: 90.3%;
   z-index: 4;
   transform: scale(6);
   position: absolute;
